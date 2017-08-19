@@ -38,7 +38,7 @@ var education = {
             "url": "http://www.coursera.org"
         }
     ]
-}
+};
 
 var work = {
     "jobs": [{
@@ -48,7 +48,7 @@ var work = {
         "dates": "2012-present",
         "description": "Continental is a leader in Automotive Solutions worldwide."
     }]
-}
+};
 
 var bio = {
     "name": "Robert Suselea",
@@ -62,7 +62,7 @@ var bio = {
         "location": "Rebreanu, Timisoara, Romania"
     },
     "skills": ["C", "C#", "Java", "JavaScript"]
-}
+};
 
 var projects = [{
         "title": "Animal Trading Card",
@@ -76,7 +76,7 @@ var projects = [{
         "description": "Project for (re)learning HTML",
         "images": ["images/team_mini-medium_medium.jpg"]
     }
-]
+];
 
 projects.display = function() {
     projects.forEach(function(item) {
@@ -88,7 +88,7 @@ projects.display = function() {
             $(".project-entry:last").append(HTMLprojectImage.replace("%data%", image));
         });
     });
-}
+};
 
 bio.display = function() {
     $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
@@ -118,7 +118,7 @@ bio.display = function() {
             $("#skills").append(HTMLskills.replace("%data%", skill));
         });
     }
-}
+};
 
 work.display = function() {
     work.jobs.forEach(function(job) {
@@ -129,7 +129,7 @@ work.display = function() {
         $(".work-entry:last").append(HTMLworkLocation.replace("%data%", job.location));
         $(".work-entry:last").append(HTMLworkDescription.replace("%data%", job.description));
     });
-}
+};
 
 education.display = function() {
     education.schools.forEach(function(item) {
@@ -155,7 +155,7 @@ education.display = function() {
         $(".education-entry:last").append(HTMLonlineDates.replace("%data%", course.dates));
         $(".education-entry:last").append(HTMLonlineURL.replace("%data%", course.url).replace("#", course.url));
     });
-}
+};
 
 $(document).click(function(loc) {
     // your code goes here
