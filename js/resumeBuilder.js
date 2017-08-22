@@ -64,22 +64,24 @@ var bio = {
     "skills": ["C", "C#", "Java", "JavaScript"]
 };
 
-var projects = [{
-        "title": "Animal Trading Card",
-        "dates": "2017",
-        "description": "Project for (re)learning HTML",
-        "images": ["images/budgerigar-medium_medium.jpg", "images/budgerigar-medium_medium.jpg"]
-    },
-    {
-        "title": "Responsive Website",
-        "dates": "2017",
-        "description": "Project for (re)learning HTML",
-        "images": ["images/team_mini-medium_medium.jpg"]
-    }
-];
+var projects = {
+    "projects": [{
+            "title": "Animal Trading Card",
+            "dates": "2017",
+            "description": "Project for (re)learning HTML",
+            "images": ["images/budgerigar-medium_medium.jpg", "images/budgerigar-medium_medium.jpg"]
+        },
+        {
+            "title": "Responsive Website",
+            "dates": "2017",
+            "description": "Project for (re)learning HTML",
+            "images": ["images/team_mini-medium_medium.jpg"]
+        }
+    ]
+};
 
 projects.display = function() {
-    projects.forEach(function(item) {
+    projects.projects.forEach(function(item) {
         $("#projects").append(HTMLprojectStart);
         $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", item.title));
         $(".project-entry:last").append(HTMLprojectDates.replace("%data%", item.dates));
@@ -91,21 +93,13 @@ projects.display = function() {
 };
 
 bio.display = function() {
-    $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-    $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+    $("#topContacts, #footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+    $("#topContacts, #footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
     if (bio.contacts.twitter !== undefined) {
-        $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+        $("#topContacts, #footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
     }
-    $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-    $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
-
-    $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-    $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-    if (bio.contacts.twitter !== undefined) {
-        $("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-    }
-    $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-    $("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+    $("#topContacts, #footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+    $("#topContacts, #footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 
     $("#header").append(HTMLheaderName.replace("%data%", bio.name));
     $("#header").append(HTMLheaderRole.replace("%data%", bio.role));
